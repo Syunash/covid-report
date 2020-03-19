@@ -17,23 +17,28 @@ const getData = function() {
                         
                         const all = data;
                         const dataContent = document.getElementById('datalist');
+
+                        //console.log(data);
                         
                         for (const [key, value] of Object.entries(all)) {
                             let name = key,
+                                dateList= value['date'],
                                 elem = value.pop(),
                                 date = elem['date'],
                                 confirmed = elem['confirmed'],
                                 recovered = elem['recovered'],
                                 deaths = elem['deaths'];
+
+                            console.log(key, JSON.stringify(value));
                             
                             dataContent.insertAdjacentHTML('beforeend',
                                 '<div class="col-12 col-lg-4">' +
                                     '<div class="block">' +
                                         '<div class="name">' + name + '</div>' +
-                                        '<div class="date">Date : ' + date + '</div>' +
+                                        /* '<div class="date">Date : ' + date + '</div>' + */
                                         '<div class="confirmed">Infectés : ' + confirmed + '</div>' +
                                         '<div class="deaths">Morts : ' + deaths + '</div>' +
-                                        '<div class="recovered">Rétablies : ' + recovered + '</div>' +
+                                        '<div class="recovered">Rétablis : ' + recovered + '</div>' +
                                 '</div></div>');
                         }
 
